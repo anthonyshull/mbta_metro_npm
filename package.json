@@ -1,0 +1,21 @@
+{
+  "name": "mbta_metro",
+  "version": "0.0.1-alpha",
+  "description": "A Phoenix LiveView component library",
+  "main": "js/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonyshull/mbta_metro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anthonyshull/mbta_metro/issues"
+  },
+  "author": "Anthony Shull",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/anthonyshull/mbta_metro#readme",
+  "dependencies": {
+    "maplibre-gl": "^4.7.0",
+    "preline": "^2.4.1",
+    "@tailwindcss/forms": "^0.5.9"
+  }
+}
