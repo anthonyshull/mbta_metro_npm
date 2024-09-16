@@ -1,7 +1,6 @@
 const { colors: defaultColors } = require('tailwindcss/defaultTheme')
 
-export default {
-  ...defaultColors,
+export const customColors = {
   "blue-800": "#0b2f4c",
   "blue-500": "#165c96",
   "blue-400": "#5da9e8",
@@ -20,4 +19,9 @@ export default {
   "yellow-300": "#ffe372",
   "yellow-100": "#fffae9",
   "white": "#ffffff"
+}
+
+export default {
+  ...defaultColors,
+  ...customColors
 }
