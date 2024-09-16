@@ -3,7 +3,7 @@ import colors, { customColors } from "./styles/colors"
 import content from "./styles/content"
 import fontFamily from "./styles/fontFamily"
 import plugins from "./styles/plugins"
-import safeList from "./styles/safeList"
+import safelist from "./styles/safelist"
 
 // HOOKS
 import Map from "./hooks/map"
@@ -19,7 +19,7 @@ export {
   customColors,
   fontFamily,
   plugins,
-  safeList,
+  safelist,
   // HOOKS
   Hooks,
   Map
