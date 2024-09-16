@@ -33,6 +33,6 @@ export default {
    * Destroys the map when the hook is removed.
    */
   destroyed () {
-    this.map.destroy();
+    delete this.map;
   }
 }
