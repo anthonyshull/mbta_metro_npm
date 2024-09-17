@@ -1,6 +1,6 @@
-import { customColors } from "./colors"
+import colors from "./colors"
 
-const colors = Object.keys(customColors);
+const colors = Object.keys(colors);
 const backgrounds = colors.map(color => {
   return {
     pattern: new RegExp(`bg-${color}`, "g"),
