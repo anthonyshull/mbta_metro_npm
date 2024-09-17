@@ -1,5 +1,5 @@
 // STYLES
-import colors, { customColors } from "./styles/colors"
+import colors from "./styles/colors"
 import content from "./styles/content"
 import fontFamily from "./styles/fontFamily"
 import plugins from "./styles/plugins"

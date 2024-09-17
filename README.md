@@ -16,11 +16,14 @@ Then, add the mbta_metro library to your `assets/package.json`:
 You can then use some defaults in your `assets/tailwind.config/js`:
 
 ```js
-const {colors, content, plugins} = require("mbta_metro")
+const {colors, content, fontFamily, plugins, safelist} = require("mbta_metro")
 
 module.exports = {
   content: [
     ...content,
+  ],
+  safelist: [
+    ...safelist,
   ],
   plugins: [
     ...plugins,
@@ -30,7 +33,10 @@ module.exports = {
       colors: {
         ...colors
       }
-    }
+    },
+    fontFamily: {
+      ...fontFamily,
+    },
   }
 }
 ```
