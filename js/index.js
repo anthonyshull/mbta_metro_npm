@@ -16,7 +16,6 @@ export {
   // STYLES
   colors,
   content,
-  customColors,
   fontFamily,
   plugins,
   safelist,
