@@ -1,7 +1,7 @@
 import colors from "./colors"
 
-const colors = Object.keys(colors);
-const backgrounds = colors.map(color => {
+const colorKeys = Object.keys(colors);
+const backgrounds = colorKeys.map(color => {
   return {
     pattern: new RegExp(`bg-${color}`, "g"),
     variants: ["hover"]
@@ -9,6 +9,6 @@ const backgrounds = colors.map(color => {
 });
 
 export default [
-  ...colors,
+  ...colorKeys,
   ...backgrounds
 ]
