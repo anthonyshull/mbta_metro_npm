@@ -4,7 +4,7 @@ const colorKeys = Object.keys(colors);
 const backgrounds = colorKeys.map(color => {
   return {
     pattern: new RegExp(`bg-${color}`, "g"),
-    variants: ["hover"]
+    variants: ["hover", "text"]
   }
 });
 
