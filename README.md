@@ -13,7 +13,7 @@ Then, add the mbta_metro library to your `assets/package.json`:
 %> npm install --save mbta_metro
 ```
 
-You can then use some defaults in your `assets/tailwind.config/js`:
+You can then use some defaults in your `assets/tailwind.config.js`:
 
 ```js
 const {colors, content, fontFamily, plugins, safelist} = require("mbta_metro")
