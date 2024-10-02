@@ -1,6 +1,6 @@
 {
   "name": "mbta_metro",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "A Phoenix LiveView component library",
   "main": "js/index.js",
   "repository": {
