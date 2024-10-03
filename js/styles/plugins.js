@@ -1,3 +1,1 @@
-export default [
-  require("preline/plugin")
-]
+export default []
