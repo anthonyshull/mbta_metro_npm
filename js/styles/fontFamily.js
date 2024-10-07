@@ -1,11 +1,8 @@
+const fallbackFontFamily = ['ui-sans-serif', 'system-ui','sans-serif','"Apple Color Emoji"','"Segoe UI Emoji"','"Segoe UI Symbol"','"Noto Color Emoji"'];
+
 export default {
-  "inter-thin": ["InterThin"],
-  "inter-extralight": ["InterExtraLight"],
-  "inter-light": ["InterLight"],
-  "inter-normal": ["InterNormal"],
-  "inter-medium": ["InterMedium"],
-  "inter-semibold": ["InterSemiBold"],
-  "inter-bold": ["InterBold"],
-  "inter-extrabold": ["InterExtraBold"],
-  "inter-black": ["InterBlack"]
+  "base": ["Inter", '"Helvetica Neue"', 'Helvetica', 'Arial', ...fallbackFontFamily],
+  "heading": ['"Helvetica Neue"', 'Helvetica', 'Arial', ...fallbackFontFamily],
+  "inter": ["Inter", ...fallbackFontFamily],
+  "helvetica": ['"Helvetica Neue"', 'Helvetica', ...fallbackFontFamily]
 }
