@@ -1,5 +1,7 @@
+import camelcaseKeys from "camelcase-keys"
+import { formatISO } from "date-fns"
 import flatpickr from "flatpickr"
-import { addMinutes, formatISO, getMinutes } from "date-fns"
+
 
 const SERVER_DATE_FORMAT = "Z"
 
@@ -7,9 +9,6 @@ const config = {
   allowInvalidPreload: true, // needed on mobile to prevent the input from becoming blank when selecting a date outside the min/max
   altInput: true, // allow different format to be sent to server
   dateFormat: SERVER_DATE_FORMAT, // this gets sent to the server
-  enableTime: true,
-  // maxDate,
-  // minDate,
   formatDate: (date, formatString, locale) => {
     if (formatString === SERVER_DATE_FORMAT) {
       // Formats a date into a string in the format util.ex parse/1 expects.
@@ -43,9 +42,14 @@ const i18nDate = (date, locale = navigator.language) => {
 export default {
   mounted() {
     const el = this.el.querySelector("#date-picker-calendar");
-    const customConfig = this.el.dataset.config ? JSON.parse(this.el.dataset.config) : {};
+    var customConfig = this.el.dataset.config ? JSON.parse(this.el.dataset.config) : {};
+    customConfig = camelcaseKeys(customConfig, {deep: true});
 
     console.log("CUSTOM CONFIG", customConfig);
+
+    Object.assign(config, customConfig);
+
+    console.log("CONFIG", config);
 
     this.pickr = flatpickr(el, config);
 
