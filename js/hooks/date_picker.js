@@ -50,6 +50,8 @@ export default {
     this.pickr = flatpickr(el, config);
 
     this.handleEvent("set-datetime", ({datetime}) => {
+      console.log("SETTING DATETIME", datetime);
+
       this.pickr.setDate(datetime);
     });
   },
