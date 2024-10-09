@@ -1,20 +1,19 @@
 import flatpickr from "flatpickr"
-import { addMinutes, format, getMinutes } from "date-fns"
+import { addMinutes, formatISO, getMinutes } from "date-fns"
 
-const SERVER_DATE_FORMAT = "Y-m-d G:i K"
+const SERVER_DATE_FORMAT = "Z"
 
 const config = {
   allowInvalidPreload: true, // needed on mobile to prevent the input from becoming blank when selecting a date outside the min/max
   altInput: true, // allow different format to be sent to server
   dateFormat: SERVER_DATE_FORMAT, // this gets sent to the server
-  defaultDate: new Date(),
   enableTime: true,
   // maxDate,
   // minDate,
   formatDate: (date, formatString, locale) => {
     if (formatString === SERVER_DATE_FORMAT) {
       // Formats a date into a string in the format util.ex parse/1 expects.
-      return format(date, "yyyy-MM-dd HH:mm aa");
+      return formatISO(date);
     }
 
     // if not being sent to the server, use localized format
@@ -39,32 +38,20 @@ const i18nDate = (date, locale = navigator.language) => {
 }
 
 /**
- * Set the date and time to the current time.
- */
-function setDateTimeNow(flatpickrInstance) {
-  flatpickrInstance.setDate(new Date());
-}
-
-/**
- * Set the date and time to the nearest 5 minutes.
- */
-function setDateTimeFiveMinutes(flatpickrInstance) {
-  const now = new Date();
-  const minutes = getMinutes(now);
-  const roundedMinutes = Math.ceil(minutes / 5) * 5;
-  const newDate = addMinutes(now, roundedMinutes - minutes);
-  
-  flatpickrInstance.setDate(newDate);
-}
-
-/**
  * This is a LiveView hook that initializes a flatpickr date picker.
  */
 export default {
   mounted() {
-    el = this.el.querySelector("#date-picker-calendar");
+    const el = this.el.querySelector("#date-picker-calendar");
+    const customConfig = this.el.dataset.config ? JSON.parse(this.el.dataset.config) : {};
+
+    console.log("CUSTOM CONFIG", customConfig);
 
     this.pickr = flatpickr(el, config);
+
+    this.handleEvent("set-datetime", ({datetime}) => {
+      this.pickr.setDate(datetime);
+    });
   },
   destroyed() {
     this.pickr.destroy();
